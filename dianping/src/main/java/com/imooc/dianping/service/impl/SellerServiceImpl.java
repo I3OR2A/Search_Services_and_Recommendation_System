@@ -22,13 +22,19 @@ public class SellerServiceImpl implements SellerService {
 
 
     @Override
+    @Transactional
     public SellerModel create(SellerModel sellerModel) {
-        return null;
+        sellerModel.setCreatedAt(new Date());
+        sellerModel.setUpdatedAt(new Date());
+        sellerModel.setRemarkScore(new BigDecimal(0));
+        sellerModel.setDisabledFlag(0);
+        sellerModelMapper.insertSelective(sellerModel);
+        return get(sellerModel.getId());
     }
 
     @Override
     public SellerModel get(Integer id) {
-        return null;
+        return sellerModelMapper.selectByPrimaryKey(id);
     }
 
     @Override
@@ -38,6 +44,12 @@ public class SellerServiceImpl implements SellerService {
 
     @Override
     public SellerModel changeStatus(Integer id, Integer disabledFlag) throws BusinessException {
-        return null;
+        SellerModel sellerModel = get(id);
+        if(sellerModel == null){
+            throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
+        }
+        sellerModel.setDisabledFlag(disabledFlag);
+        sellerModelMapper.updateByPrimaryKeySelective(sellerModel);
+        return sellerModel;
     }
 }

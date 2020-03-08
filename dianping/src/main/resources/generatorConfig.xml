@@ -53,11 +53,14 @@
         <!--               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">-->
         <!--            <property name="virtualKeyColumns" value="id" />-->
         <!--        </table>-->
-        <table tableName="seller" domainObjectName="SellerModel" enableCountByExample="false"
+        <!--        <table tableName="seller" domainObjectName="SellerModel" enableCountByExample="false"-->
+        <!--               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">-->
+        <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--        </table>-->
+        <table tableName="category" domainObjectName="CategoryModel" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-
 
         <!--        <table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="Customer" >-->
         <!--            <property name="useActualColumnNames" value="true"/>-->
