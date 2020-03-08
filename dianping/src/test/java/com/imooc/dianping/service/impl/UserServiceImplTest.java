@@ -1,20 +1,17 @@
 package com.imooc.dianping.service.impl;
 
-import com.imooc.dianping.DianpingApplication;
 import com.imooc.dianping.DianpingApplicationTests;
 import com.imooc.dianping.model.UserModel;
-import com.imooc.dianping.service.IUserService;
+import com.imooc.dianping.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import static org.junit.Assert.*;
 
 @Slf4j
 public class UserServiceImplTest extends DianpingApplicationTests {
 
     @Autowired
-    IUserService userService;
+    UserService userService;
 
     @Test
     public void getUser() {

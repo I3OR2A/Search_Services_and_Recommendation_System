@@ -7,7 +7,7 @@ import com.imooc.dianping.common.EmBusinessError;
 import com.imooc.dianping.model.UserModel;
 import com.imooc.dianping.request.LoginReq;
 import com.imooc.dianping.request.RegisterReq;
-import com.imooc.dianping.service.IUserService;
+import com.imooc.dianping.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +28,7 @@ public class UserController {
     private HttpServletRequest httpServletRequest;
 
     @Autowired
-    private IUserService userService;
+    private UserService userService;
 
     @RequestMapping("/test")
     @ResponseBody

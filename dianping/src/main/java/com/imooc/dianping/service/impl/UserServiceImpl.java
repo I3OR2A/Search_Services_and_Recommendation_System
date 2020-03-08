@@ -4,7 +4,7 @@ import com.imooc.dianping.common.BusinessException;
 import com.imooc.dianping.common.EmBusinessError;
 import com.imooc.dianping.dal.UserModelMapper;
 import com.imooc.dianping.model.UserModel;
-import com.imooc.dianping.service.IUserService;
+import com.imooc.dianping.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements UserService {
 
     @Autowired
     UserModelMapper userModelMapper;
@@ -50,6 +50,11 @@ public class UserServiceImpl implements IUserService {
             throw new BusinessException(EmBusinessError.LOGIN_FAIL);
         }
         return userModel;
+    }
+
+    @Override
+    public Integer countAllUser() {
+        return userModelMapper.countAllUser();
     }
 
     private String encodeByMd5(String str) throws NoSuchAlgorithmException, UnsupportedEncodingException {

@@ -21,6 +21,7 @@ spring:
   thymeleaf:
     prefix: classpath:/templates/
     suffix: .html
+    content-type: text/html
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
