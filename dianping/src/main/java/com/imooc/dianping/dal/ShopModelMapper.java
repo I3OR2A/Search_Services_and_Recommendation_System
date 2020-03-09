@@ -18,4 +18,6 @@ public interface ShopModelMapper {
     int updateByPrimaryKey(ShopModel record);
 
     List<ShopModel> selectAll();
+
+    Integer countAllShop();
 }

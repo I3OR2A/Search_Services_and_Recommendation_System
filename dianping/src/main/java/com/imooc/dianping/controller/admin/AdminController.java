@@ -3,6 +3,9 @@ package com.imooc.dianping.controller.admin;
 import com.imooc.dianping.common.AdminPermission;
 import com.imooc.dianping.common.BusinessException;
 import com.imooc.dianping.common.EmBusinessError;
+import com.imooc.dianping.service.CategoryService;
+import com.imooc.dianping.service.SellerService;
+import com.imooc.dianping.service.ShopService;
 import com.imooc.dianping.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -37,6 +40,16 @@ public class AdminController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private CategoryService categoryService;
+
+    @Autowired
+    private ShopService shopService;
+
+    @Autowired
+    private SellerService sellerService;
+
+
     public static final String CURRENT_ADMIN_SESSION = "currentAdminSession";
 
     @RequestMapping("/index")
@@ -44,9 +57,12 @@ public class AdminController {
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView("/admin/admin/index");
 
-        modelAndView.addObject("userCount",userService.countAllUser());
-        modelAndView.addObject("CONTROLLER_NAME","admin");
-        modelAndView.addObject("ACTION_NAME","index");
+        modelAndView.addObject("userCount", userService.countAllUser());
+        modelAndView.addObject("shopCount", shopService.countAllShop());
+        modelAndView.addObject("categoryCount", categoryService.countAllCategory());
+        modelAndView.addObject("sellerCount", sellerService.countAllSeller());
+        modelAndView.addObject("CONTROLLER_NAME", "admin");
+        modelAndView.addObject("ACTION_NAME", "index");
         return modelAndView;
     }
 
