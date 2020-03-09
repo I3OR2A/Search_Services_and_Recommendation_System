@@ -57,11 +57,14 @@
         <!--               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">-->
         <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
         <!--        </table>-->
-        <table tableName="category" domainObjectName="CategoryModel" enableCountByExample="false"
+        <!--        <table tableName="category" domainObjectName="CategoryModel" enableCountByExample="false"-->
+        <!--               enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">-->
+        <!--            <generatedKey column="id" sqlStatement="MySql" identity="true"/>-->
+        <!--        </table>-->
+        <table tableName="shop" domainObjectName="ShopModel" enableCountByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false">
             <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
-
         <!--        <table schema="DB2ADMIN" tableName="ALLTYPES" domainObjectName="Customer" >-->
         <!--            <property name="useActualColumnNames" value="true"/>-->
         <!--            <generatedKey column="ID" sqlStatement="DB2" identity="true" />-->
