@@ -23,6 +23,8 @@ public class ShopModel {
 
     private BigDecimal longitude;
 
+    private Integer distance;
+
     private Integer categoryId;
 
     private String tags;
