@@ -1,7 +1,9 @@
 package com.imooc.dianping.dal;
 
 import com.imooc.dianping.model.ShopModel;
+import org.apache.ibatis.annotations.Param;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface ShopModelMapper {
@@ -20,4 +22,6 @@ public interface ShopModelMapper {
     List<ShopModel> selectAll();
 
     Integer countAllShop();
+
+    List<ShopModel> recommend(@Param("longitude") BigDecimal longitude, @Param("latitude") BigDecimal latitude);
 }

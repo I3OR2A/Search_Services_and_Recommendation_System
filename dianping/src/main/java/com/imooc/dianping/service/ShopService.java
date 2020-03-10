@@ -15,4 +15,7 @@ public interface ShopService {
     List<ShopModel> selectAll();
 
     Integer countAllShop();
+
+    List<ShopModel> recommend(BigDecimal longitude,BigDecimal latitude);
+
 }
