@@ -49,15 +49,19 @@ public class ShopController {
                             @RequestParam(name="latitude")BigDecimal latitude,
                             @RequestParam(name="keyword")String keyword,
                             @RequestParam(name="orderby",required = false)Integer orderby,
-                            @RequestParam(name="categoryId",required = false)Integer categoryId,
-                            @RequestParam(name="tags",required = false)String tags) throws BusinessException {
+                            @RequestParam(name="categoryId",required = false)Integer categoryId
+//                            @RequestParam(name="tags",required = false)String tags
+    ) throws BusinessException {
         if(StringUtils.isEmpty(keyword) || longitude == null || latitude == null){
             throw new BusinessException(EmBusinessError.PARAMETER_VALIDATION_ERROR);
         }
 
-        List<ShopModel> shopModelList = shopService.search(longitude,latitude,keyword,orderby,categoryId,tags);
+//        List<ShopModel> shopModelList = shopService.search(longitude,latitude,keyword,orderby,categoryId,tags);
+        List<ShopModel> shopModelList = shopService.search(longitude,latitude,keyword,orderby,categoryId);
+        List<CategoryModel> categoryModelList = categoryService.selectAll();
         Map<String,Object> resMap = new HashMap<>();
         resMap.put("shop",shopModelList);
+        resMap.put("category",categoryModelList);
         return CommonRes.create(resMap);
 
     }

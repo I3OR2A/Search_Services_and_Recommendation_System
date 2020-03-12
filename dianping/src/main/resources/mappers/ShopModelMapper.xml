@@ -236,9 +236,9 @@
     <if test="categoryId != null">
       and category_id = #{categoryId}
     </if>
-    <if test="tags != null">
-      and tags = #{tags}
-    </if>
+<!--    <if test="tags != null">-->
+<!--      and tags = #{tags}-->
+<!--    </if>-->
 
     <if test="orderby == null">
       order by (0.95*1/log10(distance)+ 0.05*remark_score/5)  DESC

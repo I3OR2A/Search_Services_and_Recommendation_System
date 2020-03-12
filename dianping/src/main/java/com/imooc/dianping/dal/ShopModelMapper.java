@@ -25,10 +25,15 @@ public interface ShopModelMapper {
 
     List<ShopModel> recommend(@Param("longitude") BigDecimal longitude, @Param("latitude") BigDecimal latitude);
 
+    //    List<ShopModel> search(@Param("longitude") BigDecimal longitude,
+//                           @Param("latitude") BigDecimal latitude,
+//                           @Param("keyword")String keyword,
+//                           @Param("orderby")Integer orderby,
+//                           @Param("categoryId")Integer categoryId,
+//                           @Param("tags")String tags);
     List<ShopModel> search(@Param("longitude") BigDecimal longitude,
                            @Param("latitude") BigDecimal latitude,
-                           @Param("keyword")String keyword,
-                           @Param("orderby")Integer orderby,
-                           @Param("categoryId")Integer categoryId,
-                           @Param("tags")String tags);
+                           @Param("keyword") String keyword,
+                           @Param("orderby") Integer orderby,
+                           @Param("categoryId") Integer categoryId);
 }
