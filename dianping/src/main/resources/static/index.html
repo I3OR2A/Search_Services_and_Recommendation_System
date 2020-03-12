@@ -275,6 +275,10 @@
 
 <script type="text/javascript">
 
+    var g_orderby = null;
+    var g_categoryFilter = null;
+    var g_tagFilter = null;
+
      window.onload = function() {
 
         var slider =
@@ -455,7 +459,7 @@
                 type : "POST",
                 contentType : "application/json; charset=utf-8",
 <!--                url : "/shop/search?keyword="+keyword+"&longitude="+longitude+"&latitude="+latitude+orderby+categoryFilter+tagFilter,-->
-                url : "/shop/search?keyword="+keyword+"&longitude="+longitude+"&latitude="+latitude+orderby+categoryFilter+tagFilter,
+                url : "/shop/search?keyword="+keyword+"&longitude="+longitude+"&latitude="+latitude+orderby+categoryFilter,
                 success : function(data){
                     if(data.status == 'success'){
                         $("#guess").hide();
@@ -489,12 +493,12 @@
                             $("#searchList").append(content);
                         }
                         $("#categoryFilter").empty();
-<!--                        var categoryTag = $("<span class='bubble' data-id='"+0+"' id='category"+0+"'>全部</span>");-->
-<!--                        $("#categoryFilter").append(categoryTag);-->
-<!--                        for(var i = 0; i < categoryList.length; i++){-->
-<!--                            var categoryTag = $("<span class='bubble' data-id='"+categoryList[i].id+"' id='category"+categoryList[i].id+"'>"+categoryList[i].name+"</span>");-->
-<!--                            $("#categoryFilter").append(categoryTag);-->
-<!--                        }-->
+                        var categoryTag = $("<span class='bubble' data-id='"+0+"' id='category"+0+"'>全部</span>");
+                        $("#categoryFilter").append(categoryTag);
+                        for(var i = 0; i < categoryList.length; i++){
+                            var categoryTag = $("<span class='bubble' data-id='"+categoryList[i].id+"' id='category"+categoryList[i].id+"'>"+categoryList[i].name+"</span>");
+                            $("#categoryFilter").append(categoryTag);
+                        }
 
 
                         $("span[id^='category']").on('click',function(){
@@ -520,13 +524,13 @@
                             searchMethod();
                         });
 
-                        $("#tagsFilter").empty();
-                        var tagTag = $("<span class='bubble' data-id='' id='tags'>全部</span>");
-                        $("#tagsFilter").append(tagTag);
-                        for(var i = 0; i < tagsList.length; i++){
-                            var tagTag = $("<span class='bubble' data-id='"+tagsList[i].tags+"' id='tags"+tagsList[i].tags+"'>"+tagsList[i].tags+"("+tagsList[i].num+")</span>");
-                            $("#tagsFilter").append(tagTag);
-                        }
+<!--                        $("#tagsFilter").empty();-->
+<!--                        var tagTag = $("<span class='bubble' data-id='' id='tags'>全部</span>");-->
+<!--                        $("#tagsFilter").append(tagTag);-->
+<!--                        for(var i = 0; i < tagsList.length; i++){-->
+<!--                            var tagTag = $("<span class='bubble' data-id='"+tagsList[i].tags+"' id='tags"+tagsList[i].tags+"'>"+tagsList[i].tags+"("+tagsList[i].num+")</span>");-->
+<!--                            $("#tagsFilter").append(tagTag);-->
+<!--                        }-->
 <!--                        $("span[id^='tags']").on('click',function(){-->
 <!--                            var id = $(this).data("id");-->
 <!--                            if(id == ''){-->
